@@ -1,0 +1,106 @@
+:root {
+    --neon-blue: #00f3ff;
+    --neon-pink: #ff00ff;
+    --neon-green: #00ff41;
+    --bg-dark: #0a0a0c;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-dark);
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Subtle starfield effect */
+    background-image: 
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+        radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px);
+    background-size: 550px 550px, 350px 350px, 250px 250px;
+}
+
+#game-container {
+    position: relative;
+    box-shadow: 0 0 20px var(--neon-blue);
+    border: 2px solid var(--neon-blue);
+    background: black;
+}
+
+canvas {
+    display: block;
+}
+
+#ui-layer {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    pointer-events: none;
+    text-shadow: 0 0 10px var(--neon-blue);
+}
+
+.stat {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+#game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.95);
+    padding: 40px;
+    border: 2px solid var(--neon-pink);
+    box-shadow: 0 0 30px var(--neon-pink);
+    display: none;
+    z-index: 10;
+}
+
+#game-over h2 {
+    color: var(--neon-pink);
+    font-size: 48px;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+#game-over p {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+button {
+    background: transparent;
+    color: var(--neon-green);
+    border: 2px solid var(--neon-green);
+    padding: 15px 30px;
+    font-family: inherit;
+    font-size: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    pointer-events: auto;
+}
+
+button:hover {
+    background: var(--neon-green);
+    color: black;
+    box-shadow: 0 0 20px var(--neon-green);
+}
+
+.controls-hint {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+}
